@@ -19,11 +19,13 @@ The project’s limitations include the exclusion of analyses such as node embed
 
 ## Instructions for use
 ### Google Colab
-To use this notebook in Google Colab, click on the 'Open in Colab' button. Install the necessary packages by running the following command in a new cell:
+To use this notebook in Google Colab, open an empty Colab notebook. Now click in File and 'Open notebook', then click on the 'Github' button, where it says "Enter a GitHub URL or search by organization or user" put the URL of the repository "https://github.com/mffajardor/NS2DA-Electrical" and select the notebook. Then create a copy of the notebook (File => Save a copy in Drive). Install the necessary packages by running the following command in a new cell:
 
 ```python
 !pip install pandapower py4cytoscape
 ```
+
+![Colab](Google_Colab_step.png)
 
 ### Local Setup with Conda
 
