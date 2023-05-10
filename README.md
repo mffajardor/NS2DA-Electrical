@@ -26,7 +26,8 @@ To use this notebook in Google Colab, click on the 'Open in Colab' button. Insta
 ```
 
 ### Local Setup with Conda
-If you wish to run this notebook on your local machine, you should have [Anaconda](https://www.anaconda.com/download#downloads) installed . After installing Anaconda, follow these steps to create a new Conda environment and install the necessary packages:
+
+If you wish to run this notebook on your local machine, you should have [Anaconda](https://www.anaconda.com/download#downloads) installed. After installing Anaconda, follow these steps to create a new Conda environment and install the necessary packages:
 
 1. Open the Anaconda Command Prompt (Windows) or Terminal (Linux/MacOS).
 
@@ -46,38 +47,52 @@ conda activate network_env
 
 ```bash
 conda install -c conda-forge notebook pandas numpy plotly networkx
-conda install -c conda-forge pandapower
-pip install pandapower
+pip install pandapower[all] --upgrade
 pip install py4cytoscape
 ```
+If you encounter issues with the installation of pandapower[all], you can try installing the missing dependencies with:
 
-5. Navigate to the directory that containing the notebook and launch Jupyter Notebook:
+```bash
+sudo apt-get install libpq-dev python-dev
+pip install psycopg2-binary
+```
+
+5. Navigate to the directory that contains the notebook and launch Jupyter Notebook:
+
 
 ```bash
 cd /path/to/your/notebook/directory
 jupyter notebook
 ```
 
-This will open a new tab in your web browser where you can select and open the notebook.
-
-_Note_: Replace /path/to/your/notebook/directory with the actual path to your notebook directory.
-
-
 ### Visual Studio Code Setup with Conda
 
-1. Install Visual Studio Code if you haven't done so already. You can download it from [here](https://code.visualstudio.com/download).
+Install Visual Studio Code if you haven't done so already. You can download it from [here](https://code.visualstudio.com/download). If you want to use Visual Studio Code to work with Jupyter Notebooks, follow these additional steps:
 
-2. Launch Visual Studio Code.
+1. Open Visual Studio Code.
 
-3. Open the `.ipynb` notebook file.
+2. Open the notebook file (.ipynb) in Visual Studio Code.
 
-4. Once the notebook is open, you will see the Jupyter toolbar at the top. Click on the kernel name in the top-right corner (it may say 'Python 3' or 'Select Kernel').
+3. In the top right corner, select "Select Kernel".
 
-5. In the kernel selection dialog, click on the button that says "Select Interpreter to start Jupyter server".
+4. Choose "Python Environments" and select the virtual environment you created (network_env).
 
-6. You will see a list of all available Python environments. Look for and select the Conda virtual environment you created earlier.
+You are now ready to run the notebook in Visual Studio Code.
 
-7. The notebook should now be using the selected Conda environment. You can confirm this by checking the kernel name on the Jupyter toolbar, which should now match the name of your Conda environment.
+If you encounter issues finding conda in Linux, you can resolve this by adding the path to your .bashrc or .zshrc file (depending on your shell):
+
+```bash
+echo "export PATH=/path/to/anaconda3/bin:$PATH" >> ~/.bashrc
+source ~/.bashrc
+```
+
+Note: Replace /path/to/anaconda3/bin with the actual path to your Anaconda bin directory.
+
+If you are using zsh and cannot find conda, execute the following command in your terminal:
+
+```bash
+eval "$(/home/mffajardor/anaconda3/bin/conda shell.zsh hook)"
+```
 
 
 ## Use the file environment.yml with the libraries
